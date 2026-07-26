@@ -1,0 +1,47 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "Maximum Radio",
+          "summary": "Streams a single fixed internet radio station.",
+          "description": "A personal Alexa skill that streams one fixed internet radio station using the AudioPlayer interface. Say 'Alexa, open maximum radio' to start listening.",
+          "examplePhrases": [
+            "Alexa, open maximum radio",
+            "Alexa, ask maximum radio to play",
+            "Alexa, tell maximum radio to stop"
+          ],
+          "keywords": ["radio", "music", "streaming"]
+        },
+        "de-DE": {
+          "name": "Maximum Radio",
+          "summary": "Streamt einen einzelnen festen Internetradiosender.",
+          "description": "Ein persönlicher Alexa-Skill, der einen festen Internetradiosender über die AudioPlayer-Schnittstelle streamt. Sage 'Alexa, öffne maximum radio', um mit dem Hören zu beginnen.",
+          "examplePhrases": [
+            "Alexa, öffne maximum radio",
+            "Alexa, bitte maximum radio zu spielen",
+            "Alexa, sag maximum radio zu stoppen"
+          ],
+          "keywords": ["radio", "musik", "streaming"]
+        }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "Say 'Alexa, open maximum radio' to start the stream. Say 'pause', 'resume', or 'stop' to control playback.",
+      "category": "MUSIC_AND_AUDIO",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "https://radio.tildaslash.sh/alexa"
+        },
+        "interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0"
+  }
+}

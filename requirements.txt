@@ -1,0 +1,13 @@
+flask
+ask-sdk-core
+ask-sdk-webservice-support
+ask-sdk-model
+flask-ask-sdk
+gunicorn
+python-dotenv
+
+# oscrypto's PyPI release (1.3.0) fails to detect libcrypto on OpenSSL 3.x
+# (https://github.com/wbond/oscrypto/issues/78, unresolved upstream since 2023).
+# Force the patched commit instead of the broken PyPI release - not a version
+# pin, a required bugfix with no released alternative.
+oscrypto @ git+https://github.com/wbond/oscrypto.git@d5f3437ed24257895ae1edd9e503cfb352e635a8
