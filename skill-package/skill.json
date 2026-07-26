@@ -4,29 +4,31 @@
       "locales": {
         "en-US": {
           "name": "Maximum Radio",
-          "summary": "Streams a single fixed internet radio station.",
-          "description": "A personal Alexa skill that streams one fixed internet radio station using the AudioPlayer interface. Say 'Alexa, open maximum radio' to start listening.",
+          "summary": "Streams a fixed internet radio station from a publicly available stream.",
+          "description": "Maximum Radio streams a single, fixed internet radio station through Alexa's AudioPlayer interface. Just say \"Alexa, open maximum radio\" to start listening, and use \"pause\", \"resume\", or \"stop\" to control playback. There are no settings to configure and no account is required - it always plays the same publicly available stream.",
           "examplePhrases": [
             "Alexa, open maximum radio",
             "Alexa, ask maximum radio to play",
             "Alexa, tell maximum radio to stop"
           ],
-          "keywords": ["radio", "music", "streaming"]
+          "keywords": ["radio", "music", "streaming", "station", "live radio"],
+          "privacyPolicyUrl": "https://radio.tildaslash.sh/privacy"
         },
         "de-DE": {
           "name": "Maximum Radio",
-          "summary": "Streamt einen einzelnen festen Internetradiosender.",
-          "description": "Ein persönlicher Alexa-Skill, der einen festen Internetradiosender über die AudioPlayer-Schnittstelle streamt. Sage 'Alexa, öffne maximum radio', um mit dem Hören zu beginnen.",
+          "summary": "Streamt einen festen Internetradiosender von einer öffentlich zugänglichen Quelle.",
+          "description": "Maximum Radio streamt einen einzelnen, festen Internetradiosender über die AudioPlayer-Schnittstelle von Alexa. Sage einfach \"Alexa, öffne maximum radio\", um mit dem Hören zu beginnen, und verwende \"Pause\", \"Fortsetzen\" oder \"Stopp\", um die Wiedergabe zu steuern. Es gibt keine Einstellungen zu konfigurieren und kein Konto ist erforderlich - es wird immer derselbe öffentlich zugängliche Stream abgespielt.",
           "examplePhrases": [
-            "Alexa, öffne maximum radio",
-            "Alexa, bitte maximum radio zu spielen",
-            "Alexa, sag maximum radio zu stoppen"
+            "Alexa, starte maximum radio",
+            "Alexa, sag maximum radio, spiel das radio",
+            "Alexa, frage maximum radio, Musik zu spielen"
           ],
-          "keywords": ["radio", "musik", "streaming"]
+          "keywords": ["radio", "musik", "streaming", "sender", "live radio"],
+          "privacyPolicyUrl": "https://radio.tildaslash.sh/privacy"
         }
       },
-      "isAvailableWorldwide": false,
-      "testingInstructions": "Say 'Alexa, open maximum radio' to start the stream. Say 'pause', 'resume', or 'stop' to control playback.",
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Say \"Alexa, open maximum radio\" to start streaming the fixed station. Say \"Alexa, pause\", \"Alexa, resume\", or \"Alexa, stop\" to control playback. No account linking or hardware other than a standard Alexa device is required.",
       "category": "MUSIC_AND_AUDIO",
       "distributionCountries": []
     },
