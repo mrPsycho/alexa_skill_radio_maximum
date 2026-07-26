@@ -6,13 +6,20 @@ registered handlers - do not bypass or reimplement that verification here.
 """
 
 import logging
+import os
 
 from ask_sdk_core.skill_builder import SkillBuilder
-from flask import Flask, Response
+from flask import Flask, Response, send_from_directory
 from flask_ask_sdk.skill_adapter import SkillAdapter
 
 from app.config import ALEXA_SKILL_ID, PORT
 from app.handlers import EXCEPTION_HANDLERS, REQUEST_HANDLERS
+
+ICONS_DIR = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    "skill-package",
+    "icons",
+)
 
 logging.basicConfig(level=logging.INFO)
 
@@ -83,6 +90,20 @@ PRIVACY_POLICY_HTML = """<!DOCTYPE html>
 @app.route("/privacy", methods=["GET"])
 def privacy():
     return Response(PRIVACY_POLICY_HTML, mimetype="text/html")
+
+
+@app.route("/assets/icon-108.png", methods=["GET"])
+def icon_small():
+    response = send_from_directory(ICONS_DIR, "icon_108_A2Z.png", mimetype="image/png")
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
+
+
+@app.route("/assets/icon-512.png", methods=["GET"])
+def icon_large():
+    response = send_from_directory(ICONS_DIR, "icon_512_A2Z.png", mimetype="image/png")
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
 
 
 if __name__ == "__main__":
