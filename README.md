@@ -9,13 +9,14 @@ build roadmap.
 
 ## Current status
 
-The skill is **built and deployed to production**. Live details:
+The skill is **built and deployed to production** (development stage, not yet
+certified). Details:
 
 | Item | Value |
 |------|-------|
-| Skill name | Maximum Radio |
-| Skill ID | `amzn1.ask.skill.75f2957e-6984-4005-a3ab-7249fa26db0d` |
-| Invocation name | "maximum radio" |
+| Skill name | Radio Maximum RU |
+| Skill ID | `amzn1.ask.skill.e1194bf6-c3aa-432d-8448-8d6acf407a14` |
+| Invocation name | "radio maximum r. u." |
 | Production endpoint | `https://radio.tildaslash.sh/alexa` |
 | Hosting | Self-managed YunoHost server (see [Production hosting](#production-hosting) below) |
 
@@ -107,7 +108,7 @@ Official reference: [Test and Debug Your Skill](https://developer.amazon.com/en-
 
 ### Simulator
 Developer console → **Test** tab (make sure "Skill testing is enabled in:
-**Development**"). Try "open maximum radio", "pause", "resume", "stop" —
+**Development**"). Try "open radio maximum r. u.", "pause", "resume", "stop" —
 directives appear in Skill I/O (audio itself won't play in the simulator).
 
 ### Alexa app (phone/tablet/desktop)
@@ -122,11 +123,11 @@ directives appear in Skill I/O (audio itself won't play in the simulator).
 4. Enable the skill:
    - **Standard Alexa app**: tap the ☰ menu → **Skills and Games** →
      **Your Skills** → scroll the skill-type tabs to **Dev** → find
-     "Maximum Radio" → tap it → **ENABLE TO USE**.
+     "Radio Maximum RU" → tap it → **ENABLE TO USE**.
    - **Alexa+ app**: tap the ☰ menu → **More** → **Alexa+ Store** → scroll
      down → **Browse Alexa Skills and Games**, then the same **Your
      Skills** → **Dev** flow as above.
-5. Say **"Alexa, open maximum radio"**, then test "Alexa, pause" / "Alexa,
+5. Say **"Alexa, open radio maximum r. u."**, then test "Alexa, pause" / "Alexa,
    resume" / "Alexa, stop" from the app's mic or a linked device.
 
 To let other people test without sharing your developer credentials, use a
@@ -143,7 +144,7 @@ instead of trying to add them as a household/Family member.
    [Amazon Household](https://www.amazon.com/myh/amazonFamily)/a beta test
    instead of resetting, if you don't want to lose the device's existing
    account association).
-3. Say **"Alexa, open maximum radio"** (wake word + invocation name), then
+3. Say **"Alexa, open radio maximum r. u."** (wake word + invocation name), then
    "Alexa, pause" / "Alexa, resume" / "Alexa, stop".
 4. Testing behind a corporate firewall requires opening specific ports for
    Echo device connectivity — see the "Test your skills behind a firewall"

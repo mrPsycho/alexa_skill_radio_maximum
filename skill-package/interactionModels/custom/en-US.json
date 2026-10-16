@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "maximum radio",
+      "invocationName": "radio maximum r. u.",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",

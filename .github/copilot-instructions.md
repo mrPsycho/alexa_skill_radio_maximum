@@ -6,9 +6,11 @@ Alexa-hosted). See [PLAN.md](../PLAN.md) for the full build roadmap, phase
 status checklist, and rationale behind design decisions — read it before
 starting new work and update its status checklist as phases complete.
 
-## Current status: LIVE in production
-- Skill ID: `amzn1.ask.skill.75f2957e-6984-4005-a3ab-7249fa26db0d` ("Maximum
-  Radio", invocation name "maximum radio").
+## Current status: deployed, development stage (not yet certified)
+- Skill ID: `amzn1.ask.skill.e1194bf6-c3aa-432d-8448-8d6acf407a14` ("Radio
+  Maximum RU", invocation name "radio maximum r. u."), locales en-US and de-DE.
+  Replaced the old certified skill `amzn1.ask.skill.75f2957e-...` (removed
+  2026-10-16) because a live skill's invocation name can't be changed.
 - Production endpoint: `https://radio.tildaslash.sh/alexa`, served by a
   self-managed YunoHost server. See [README.md](../README.md)'s
   "Production hosting" section for the full architecture, redeploy
@@ -26,9 +28,8 @@ starting new work and update its status checklist as phases complete.
 - Alexa request verification: `flask_ask_sdk.SkillAdapter` does signature
   and timestamp checks (do not bypass). It does NOT check the skill ID —
   that's done by `SkillIdVerifier` in `app/main.py` against the
-  comma-separated `ALEXA_SKILL_ID` list. Several skills (one per extra
-  invocation name, e.g. "radio maximum r. u.", "morning maximum radio")
-  share this one backend; add each new skill's ID to that list.
+  comma-separated `ALEXA_SKILL_ID` list (one backend can serve several
+  skills, e.g. one per invocation name).
 - Interaction model lives under
   `skill-package/interactionModels/custom/<locale>.json`; skill manifest at
   `skill-package/skill.json`.
