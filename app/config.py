@@ -11,7 +11,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-ALEXA_SKILL_ID = os.environ.get("ALEXA_SKILL_ID", "")
+# Comma-separated: one backend serves several skills that differ only by invocation name.
+ALEXA_SKILL_IDS = frozenset(
+    s.strip() for s in os.environ.get("ALEXA_SKILL_ID", "").split(",") if s.strip()
+)
 STATION_NAME = os.environ.get("STATION_NAME", "Maximum Radio")
 STATION_URL = os.environ.get(
     "STATION_URL", "https://hls-01-maximum.hostingradio.ru/maximum/playlist.m3u8"

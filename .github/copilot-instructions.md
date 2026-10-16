@@ -23,9 +23,12 @@ starting new work and update its status checklist as phases complete.
 - Backend: Flask app (`app/main.py`), handlers in `app/handlers.py`, station
   config in `app/config.py` (read from environment variables, never
   hardcode secrets or the skill ID in code).
-- Alexa request verification is done by `flask_ask_sdk.SkillAdapter`
-  (signature, timestamp, and `skill_id` checks) — do not bypass or
-  reimplement this manually.
+- Alexa request verification: `flask_ask_sdk.SkillAdapter` does signature
+  and timestamp checks (do not bypass). It does NOT check the skill ID —
+  that's done by `SkillIdVerifier` in `app/main.py` against the
+  comma-separated `ALEXA_SKILL_ID` list. Several skills (one per extra
+  invocation name, e.g. "radio maximum r. u.", "morning maximum radio")
+  share this one backend; add each new skill's ID to that list.
 - Interaction model lives under
   `skill-package/interactionModels/custom/<locale>.json`; skill manifest at
   `skill-package/skill.json`.

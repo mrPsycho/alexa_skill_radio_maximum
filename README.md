@@ -54,7 +54,7 @@ Edit `.env` and fill in:
 
 | Variable         | Description                                                                 |
 |-------------------|------------------------------------------------------------------------------|
-| `ALEXA_SKILL_ID`  | Your skill's Amazon-assigned ID (from the developer console), used to verify incoming requests. |
+| `ALEXA_SKILL_ID`  | Amazon-assigned skill ID(s) from the developer console, used to verify incoming requests. Comma-separate multiple IDs when several skills (different invocation names) share this backend. |
 | `STATION_NAME`    | Display/spoken name of the station, e.g. `Maximum Radio`.                    |
 | `STATION_URL`     | HTTPS stream URL (AAC/MP4, MP3, PLS, M3U/M3U8, or HLS), port 443, trusted cert. |
 | `PORT`            | Local port for the Flask/gunicorn server (default `5000`).                   |

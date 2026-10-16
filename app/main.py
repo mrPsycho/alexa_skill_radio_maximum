@@ -10,9 +10,10 @@ import os
 
 from ask_sdk_core.skill_builder import SkillBuilder
 from flask import Flask, Response, send_from_directory
+from ask_sdk_webservice_support.verifier import AbstractVerifier, VerificationException
 from flask_ask_sdk.skill_adapter import SkillAdapter
 
-from app.config import ALEXA_SKILL_ID, PORT
+from app.config import ALEXA_SKILL_IDS, PORT
 from app.handlers import EXCEPTION_HANDLERS, REQUEST_HANDLERS
 
 ICONS_DIR = os.path.join(
@@ -31,7 +32,22 @@ for handler in REQUEST_HANDLERS:
 for handler in EXCEPTION_HANDLERS:
     sb.add_exception_handler(handler)
 
-skill_adapter = SkillAdapter(skill=sb.create(), skill_id=ALEXA_SKILL_ID, app=app)
+class SkillIdVerifier(AbstractVerifier):
+    def verify(self, headers, serialized_request_env, deserialized_request_env):
+        app_id = deserialized_request_env.context.system.application.application_id
+        if app_id not in ALEXA_SKILL_IDS:
+            raise VerificationException(f"Unknown skill ID: {app_id}")
+
+
+if not ALEXA_SKILL_IDS:
+    raise RuntimeError("ALEXA_SKILL_ID must be set")
+
+skill_adapter = SkillAdapter(
+    skill=sb.create(),
+    skill_id="maximum-radio",
+    verifiers=[SkillIdVerifier()],
+    app=app,
+)
 skill_adapter.register(app=app, route="/alexa")
 
 
